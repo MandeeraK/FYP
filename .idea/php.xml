@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../../../XAMPP" />
+      <path value="$USER_HOME$/Sites/mandeera" />
+      <path value="$PROJECT_DIR$/../../" />
+    </include_path>
+  </component>
+</project>
