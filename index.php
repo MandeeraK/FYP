@@ -8,65 +8,31 @@
 ?>
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="styles.css">-->
 </head>
 <body>
 <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Upload')">Upload</button>
-    <button class="tablinks" onclick="openCity(event, 'Upload2')">Upload2</button>
-    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+    <button class="tablinks" onclick="openCity(event, 'Upload2')">Upload</button>
+    <button class="tablinks" onclick="openCity(event, 'View')">All Files</button>
 </div>
-<div id="Upload" class="tabcontent">
-    <article id="main-content" role="main">
-        <section class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <header>
-                        <h1>File Encryptor</h1>
-                    </header>
-                </div>
-                <div class="col-md-8">
-                    <!--./file input example -->
-                    <p>&nbsp;</p>
-                    <hr>
-                    <h3 class="text-info">Example 2 : large upload iframe</h3>
-                    <p><strong>Note:</strong> This is a CSS Demo only, no JavaScript nor Server side Code is provided to handle file preview or upload status.</p>
-                    <!--image file upoad sample-->
-                    <div class="box">
-                        <!-- fileuploader view component -->
-                        <form action="#" method="post" class="text-center">
-                            <div class="margin-bottom-20">
-                                <img class="thumbnail box-center margin-top-20" alt="No image" src="http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png">
-                            </div>
-                            <p>
-                                <button type="submit" class="btn btn-sm" name="delete"><i class="icon-remove"></i> Remove</button>
-                                <button type="submit" class="btn btn-primary btn-sm" id="save" name="save"><i class="icon-ok icon-white"></i> Save</button>
-                            </p>
-                        </form>
-                        <!-- ./fileuploader view component -->
-                        <div class="row">
-                            <div class="col-sm-10">
-              <span class="control-fileupload">
-                <label for="file1" class="text-left">Please choose a file on your computer.</label>
-                <input type="file" id="file1">
-              </span>
-                            </div>
-                            <div class="col-sm-2">
-                                <button type="button" class="btn btn-primary btn-block">
-                                    <i class="icon-upload icon-white"></i> Upload
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <br />
-                    <hr />
-                </div>
-            </div>
-        </section>
-    </article>
-</div>
+
 <div id="Upload2" class="tabcontent">
+
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+</div>
+<div id="View" class="tabcontent">
 
 </div>
 
@@ -78,7 +44,22 @@
             $(this).prev('label').text(labelText);
         })
     });
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
 </script>
 </body>
 </html>
+
 
